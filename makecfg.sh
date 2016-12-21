@@ -80,6 +80,7 @@ checkserv ()
 	if ! cmp -s "$ROTFILE" "$TMPFILE"
 	then
 		cp -f "$TMPFILE" "$ROTFILE.new"
+		rm -f "$TMPFILE"
 		chmod 0644 "$ROTFILE.new"
 		mv -f "$ROTFILE.new" "$ROTFILE"
 		[ -n "$SCRIPT" ] && eval "$SCRIPT"
